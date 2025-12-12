@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           https://www.springframework.org/schema/context/spring-context.xsd
+           http://www.springframework.org/schema/aop
+           https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <aop:aspectj-autoproxy/>
+    <bean id="triangle" class="com.iss.springaop.Models.Triangle">
+        <property name="name" value="Triangle"/>
+    </bean>
+    <!-- ... rest of your bean definitions ... -->
+    <bean id="circle" class="com.iss.springaop.Models.Circle">
+        <property name="name" value="Circle"/>
+    </bean>
+    <bean id="shape" class="com.iss.springaop.Service.Shape" autowire="byType">
+
+    </bean>
+
+    <bean id="aop" class="com.iss.springaop.Aspects.LoggingAspect"></bean>
+
+</beans>
