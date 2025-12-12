@@ -1,5 +1,6 @@
 package com.iss.springaop;
 
+import com.iss.springaop.Models.Circle;
 import com.iss.springaop.Service.Shape;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -11,9 +12,12 @@ public class AspectApplication {
         ConfigurableApplicationContext context = new ClassPathXmlApplicationContext("AOPConfig.xml");
         context.registerShutdownHook();
 
+        Circle circle = context.getBean(Circle.class);
+        circle.setName("MyCircle");
+
         Shape shape=context.getBean("shape",Shape.class);
-        shape.callingShape();
-        System.out.println(shape.getCircle().getName());
+//        shape.callingShape();
+//        System.out.println(shape.getCircle().getName());
         // result for this is
         // when we use this aspect in other way which is
         // System.out.print(shape.getCircle().getName());
